@@ -1,21 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE>
 <html lang="en">
 	<head>
 		<%= stylesheet_link_tag "/css/bootstrap.min.css", :media => "all" %>
 		<%= stylesheet_link_tag "/css/font-awesome.min.css", :media => "all"%>
 		<%= stylesheet_link_tag "/css/normal.css", :media => "all"%>
+		<%= stylesheet_link_tag "/css/chosen.css", :media => "all"%>
+		<%= stylesheet_link_tag "/css/stockapp.css", :media => "all"%>
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 
-		<title><%= SITENAME %></title>
+		<title><%= 'Fuxi Revenge' %></title>
 
 		<meta charset="utf-8" />	
 	</head>
 	<body>
 		<%= yield %>
 	</body>
-	<%= javascript_script_tag "/js/jquery.min.js" %>
+	<%= javascript_script_tag "http://code.jquery.com/jquery-latest.min.js" %>
 	<%= javascript_script_tag "/js/bootstrap.min.js" %>
+	<%= javascript_script_tag "/js/chosen.jquery.js" %>
+	<%= javascript_script_tag "/js/jquery.rdfquery.core-1.0.js" %>
+	<%= javascript_script_tag "/js/jquery.rdfquery.rdfa-1.0.js" %>
+	<%= javascript_script_tag "/js/jquery.rdfquery.rules-1.0.js" %>
+	<%= javascript_script_tag "/js/stockapp.js" %>
 	<%= javascript_script_tag "/js/app.js" %>
 </html>
