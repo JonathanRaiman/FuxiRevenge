@@ -6,3 +6,5 @@ gem 'colorize'
 gem 'nas-yahoo_stock'
 gem 'json'
 gem 'sparql'
+gem "capybara"
+gem 'thin'

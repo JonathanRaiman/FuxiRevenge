@@ -1,6 +1,5 @@
-require 'yahoo_stock'
-require './YahooStockQuote.rb'
-require './StockSymbolAcquirer.rb'
+require './classes/YahooStockQuote.rb'
+require './classes/StockSymbolAcquirer.rb'
 
 class StockFinder
 	attr_reader :quote
