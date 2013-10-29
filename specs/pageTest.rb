@@ -10,4 +10,14 @@ describe "App" do
 		visit '/'
 		expect(page).to have_content('Hello World')
 	end
+
+	it 'should return a json with stock info', :type => :feature do
+		visit '/stocks.json'
+		stocks = StockFinder.new.retrieve_stocks
+		appleStockIndex = stocks.index {|i| i[:symbol] == "AAPL"}
+		json_parsed = JSON.parse(page.body)
+		json_parsed[appleStockIndex].keys.each do |key|
+			json_parsed[appleStockIndex][key].should eql stocks[appleStockIndex][key.to_sym]
+		end
+	end
 end

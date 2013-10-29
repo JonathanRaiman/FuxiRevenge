@@ -9,7 +9,7 @@ class StockSymbolAcquirer
 	end
 
 	def stocks
-		@query = @sparql.query(<<-MAP
+		@stocks = @sparql.query(<<-MAP
 			SELECT distinct ?company, ?symbol
 			WHERE {
 				?companyNode dbpprop:type   dbpedia:Public_company.
@@ -19,11 +19,16 @@ class StockSymbolAcquirer
 			LIMIT 10000
 		MAP
 		).map {|i| i.to_hash }
-		@query.each do |query|
+		@stocks.each do |query|
 			query.keys.each do |key|
 				query[key] = query[key].object
 			end
 		end
-		@query
+		@stocks
+	end
+
+	def stock_symbols
+		stocks
+		@stocks.map {|i| i[:symbol]}
 	end
 end
