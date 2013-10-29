@@ -3,6 +3,6 @@ require 'yahoo_stock'
 
 SITENAME = "Fuxi Revenge"
 
-get '/'
+get '/' do
 	erb :"main/index"
 end
