@@ -1,0 +1,79 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.3.5)
+    builder (3.2.2)
+    capybara (2.1.0)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    colorize (0.6.0)
+    daemons (1.1.9)
+    ebnf (0.3.1)
+      rdf
+      sxp
+    eventmachine (1.0.3)
+    json (1.8.1)
+    json_pure (1.8.1)
+    mime-types (2.0)
+    mini_portile (0.5.2)
+    nas-yahoo_stock (1.0.8)
+      builder (>= 2.1.2)
+    net-http-persistent (2.9)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
+    rack (1.5.2)
+    rack-protection (1.5.1)
+      rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rdf (1.0.10)
+      addressable (>= 2.3)
+    rdf-aggregate-repo (0.1.2)
+      rdf (>= 1.0)
+    rdf-xsd (1.0.2.1)
+      nokogiri (>= 1.5.0)
+      rdf (>= 0.3.4)
+    sinatra (1.4.4)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    sinatra-static-assets (1.0.4)
+      sinatra (>= 1.1.0)
+    sparql (1.1.0)
+      builder (>= 3.0)
+      ebnf (>= 0.3.0)
+      json (>= 1.7)
+      rdf (>= 1.0.7)
+      rdf-aggregate-repo
+      rdf-xsd (>= 1.0.2)
+      sparql-client (>= 1.0.3)
+      sxp (>= 0.1.3)
+    sparql-client (1.0.4.1)
+      json_pure (>= 1.4)
+      net-http-persistent (>= 1.4)
+      rdf (>= 1.0)
+    sxp (0.1.3)
+      json (>= 1.1.1)
+    thin (1.6.0)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.5.0)
+    tilt (1.4.1)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  capybara
+  colorize
+  json
+  nas-yahoo_stock
+  sinatra
+  sinatra-static-assets
+  sparql
+  thin

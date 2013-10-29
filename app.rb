@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/static_assets'
-require './routes/routes.rb'
-require 'yahoo_stock'
+require './classes/routes/routes.rb'
+require './classes/StockFinder.rb'
 
 class App < Sinatra::Base
 	SITENAME = "Fuxi Revenge"
