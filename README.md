@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Fuxi Revenge
 =====
 
@@ -37,4 +36,3 @@ Mitchell Kates and Jonathan Raiman
 Linked Data Ventures Mini Project
 
 Using Yahoo stock prices and dbpedia to create a mash up that extends the linked data
->>>>>>> 193967ca64299eca1ffd75183037880f4496dc05
