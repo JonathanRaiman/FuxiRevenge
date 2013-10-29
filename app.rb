@@ -1,8 +1,14 @@
 require 'sinatra'
+require 'sinatra/static_assets'
+require_relative 'routes/routes.rb'
 require 'yahoo_stock'
 
-SITENAME = "Fuxi Revenge"
+class App < Sinatra::Base
+	SITENAME = "Fuxi Revenge"
+	register Sinatra::StaticAssets
+	set :root, File.dirname(__FILE__)
+end
 
-get '/' do
-	erb :"main/index"
+if __FILE__ == $0
+	App.run!
 end
