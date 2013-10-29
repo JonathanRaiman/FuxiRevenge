@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'sinatra'
 require 'sinatra/static_assets'
 require_relative 'routes/routes.rb'
