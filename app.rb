@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/static_assets'
-require_relative 'routes/routes.rb'
+require './routes/routes.rb'
 require 'yahoo_stock'
 
 class App < Sinatra::Base
