@@ -34,3 +34,5 @@ Issues
 Linked Data Ventures Mini Project
 
 Using Yahoo stock prices and dbpedia to create a mash up that extends the linked data
+
+to run, ruby app.rb
