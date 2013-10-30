@@ -6,5 +6,8 @@ gem 'colorize'
 gem 'nas-yahoo_stock'
 gem 'json'
 gem 'sparql'
+gem 'rspec'
 gem "capybara"
 gem 'thin'
+gem "rdf"
+gem "rdf/raptor"

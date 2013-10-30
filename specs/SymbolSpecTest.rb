@@ -5,7 +5,7 @@ require './app.rb'
 describe StockSymbolAcquirer do
 	apple_symbol = "AAPL"
 	it 'should obtain stock names and symbols' do
-		StockSymbolAcquirer.new.stocks.should include({:symbol => apple_symbol, :company => "Apple Inc."})
+		StockSymbolAcquirer.new.stocks.should include({:symbol => apple_symbol, :company => "Apple Inc.", :address => "Apple Campus, 1 Infinite Loop, Cupertino, California"})
 	end
 
 	it 'should return stock symbols' do
