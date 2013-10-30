@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<%= stylesheet_link_tag "/css/bootstrap.min.css", :media => "all" %>
@@ -17,7 +17,8 @@
 	<body>
 		<%= yield %>
 	</body>
-	<%= javascript_script_tag "http://code.jquery.com/jquery-latest.min.js" %>
+	<%= javascript_script_tag "/js/jquery.min.js" %>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<%= javascript_script_tag "/js/bootstrap.min.js" %>
 	<%= javascript_script_tag "/js/chosen.jquery.js" %>
 	<%= javascript_script_tag "/js/jquery.rdfquery.core-1.0.js" %>
@@ -25,4 +26,5 @@
 	<%= javascript_script_tag "/js/jquery.rdfquery.rules-1.0.js" %>
 	<%= javascript_script_tag "/js/stockapp.js" %>
 	<%= javascript_script_tag "/js/app.js" %>
+	
 </html>
