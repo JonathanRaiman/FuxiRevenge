@@ -21,6 +21,7 @@ class StockFinder
 		@@stocks.each_with_index do |stock,k|
 			output[k][:address] = stock[:address]
 		end
+		output
 	end
 
 	def initialize
