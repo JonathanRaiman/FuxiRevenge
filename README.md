@@ -1,36 +1,47 @@
 Fuxi Revenge
-=====
+============
+*Linked Data Ventures Mini Project*
 
-A novel way to inferface with Linked Data and stocks.
+A novel way to inferface with Linked Data and stocks. Using Yahoo stock prices and dbpedia to create a mash up that extends the linked data and shows it on a map.
 
 
-**collaborators** Mitchell Kates, Jonathan Raiman
+**collaborators**
+*    Mitchell Kates,
+*    Jonathan Raiman
 
 
 Installation
-----
+------------
 
 
-Run
+1.    Run
 
-	bundle install
+	    	bundle install
 
-from the directory
+	from the directory
 
-and then hit:
+2.	You'll also need **rdf/raptor** to process RDF files:
 
-	ruby app.rb
+	    	brew install raptor
 
-to get started.
+	Now you are ready, you can type:
 
+	    	ruby app.rb
 
-You can then navigate to
+	to get started.
 
-	localhost:4567
+3.	Navigate to ``localhost:4567`` and let the magic begin.
 
+Tests
+-----
+
+for Capybara and route testing do:
+
+    rspec specs/pageTest.rb
+for backend testing:
+
+	rspec specs/SymbolSpecTest.rb
 
 Issues
-----
-Linked Data Ventures Mini Project
-
-Using Yahoo stock prices and dbpedia to create a mash up that extends the linked data
+------
+???
