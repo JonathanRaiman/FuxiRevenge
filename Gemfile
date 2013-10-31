@@ -10,4 +10,4 @@ gem 'rspec'
 gem "capybara"
 gem 'thin'
 gem "rdf"
-gem "rdf/raptor"
+gem "rdf-raptor"
