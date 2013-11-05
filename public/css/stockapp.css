@@ -55,3 +55,6 @@ h2, .headertext {
 	right: 0;
 	position: absolute;
 }
+.gm-style img {
+	min-width: 59px; !important
+}
