@@ -3,6 +3,7 @@ require './classes/StockSymbolAcquirer.rb'
 require 'json'
 
 class StockFinder
+	# obtains stock values and symbols from Yahoo Finance
 	attr_reader :quote
 	stock_symbol_acquirer = StockSymbolAcquirer.new
 	@@stocks        = stock_symbol_acquirer.stocks

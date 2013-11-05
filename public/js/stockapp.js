@@ -1,13 +1,9 @@
-var _chartEventName = "chartClicked";
+/*
 
-if (!String.prototype.format) {
-	String.prototype.format = function() {
-		var args = arguments;
-		return this.replace(/{(\d+)}/g, function(match, number) {
-			return typeof args[number] != 'undefined' ? args[number] : match;
-		});
-	};
-}
+Our main StockUpdater object handles all the main actions and lets us have a cleaner interface to the actions
+without too many global variables.
+
+*/
 
 function StockUpdater (selector, container, map_container, infobox, url) {
 	this.url       = url;
@@ -20,6 +16,8 @@ function StockUpdater (selector, container, map_container, infobox, url) {
 
 	var updater = this;
 
+	// we start the page with a stock picked for a more lively start.
+
 	this.pickRandomValue = function () {
 		var options = updater.selector.find("option"),
 			chosenOption = $(options[Math.floor(Math.random()*options.length)]);
@@ -28,9 +26,7 @@ function StockUpdater (selector, container, map_container, infobox, url) {
 		updater.selector.trigger("change");
 	};
 
-	// this.formatStock = function (stock) {
-	// 	return .format(stock.name, stock.tradeprice);
-	// };
+	// markers need to be reset when changes occur on the select-box.
 
 	this.resetMarkers = function (symbols) {
 		var updater = this;
@@ -42,6 +38,8 @@ function StockUpdater (selector, container, map_container, infobox, url) {
 			}
 		}
 	};
+
+	// The stock plot also needs to be updated to reflect the latest picks in the select-box
 
 	this.updateStocks = function () {
 		updater.stocks = updater.selector.val() ? updater.selector.val() : [];
@@ -62,6 +60,8 @@ function StockUpdater (selector, container, map_container, infobox, url) {
 		});
 	};
 
+
+	// Googlemaps code to create a map with certain styling (less details, more color, saturation)
 	this.initializeMap = function () {
 		var styles = [
 			{
@@ -126,6 +126,8 @@ function StockUpdater (selector, container, map_container, infobox, url) {
 
 	};
 
+
+	// This function takes a symbol and finds the relevant map marker (if it exists) and pans the map on it
 	this.centerOnMarker = function (symbol) {
 		$.each(updater.markers, function () {
 			if (this._id == symbol) {
@@ -136,12 +138,19 @@ function StockUpdater (selector, container, map_container, infobox, url) {
 		});
 	};
 
+	// These two functions get called before and after moving the map, and serve to hide / show the infoBox
+	// with the credits.
+
 	this.after_panning = function () {
 		this.infobox.animate({opacity: 0}, 500);
 	};
 	this.before_panning = function () {
 		this.infobox.animate({opacity: 1}, 250);
 	};
+
+	// creates a Google Maps marker using an id for retrieval, a title that appears in a popup box
+	// and an address to be given to google maps for disambiguation
+	// a callback (not used so far ) is also provided to add functionality on clicks.
 
 	this.createMarker = function (id, address, title, callback) {
 		for (var i=0;i < this.markers.length;i++) {
@@ -193,6 +202,10 @@ function StockUpdater (selector, container, map_container, infobox, url) {
 
 }
 
+// this function obtains the JSON from the server with updated stock information
+// (notice that the url is not hard coded to allow flexible development and last
+// minute route changes).
+
 StockUpdater.prototype.obtainData = function (callback) {
 	var data = [];
 	$.getJSON(this.url, function (response) {
@@ -211,10 +224,17 @@ StockUpdater.prototype.obtainData = function (callback) {
 StockUpdater.prototype.emptyGraph = function () {
 	this.container.empty();
 };
+
+// chartClicked is the event called when a chart is clicked and a marker is highlighted.
+var _chartEventName = "chartClicked";
+
+// this function gets called when clicking the chart to center the map
+// on the corresponding marker.
 StockUpdater.prototype.highlightChart = function (event) {
 	$(document).trigger(_chartEventName, {symbol: event.point.category});
 };
 
+// styling and reseting the highcharts chart:
 StockUpdater.prototype.resetGraph = function (_args) {
 	this.container.highcharts({
 		chart: {
@@ -225,14 +245,7 @@ StockUpdater.prototype.resetGraph = function (_args) {
 		legend: {
 			enabled: false
 		},
-		title: false, /*{
-			text: 'Stock Prices in Real Time',
-			style: {
-				fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif;', // default font
-				fontSize: '14px',
-				color: '#333'
-			}
-		},*/
+		title: false,
 		xAxis: {
 			categories: _args.categories,
 			title: {
@@ -276,10 +289,7 @@ StockUpdater.prototype.resetGraph = function (_args) {
 	});
 };
 
-
-
+// this is called on document load, and instatiates all the necessary elements to run the app:
 $(document).ready(function() {
 	var su = new StockUpdater($("#stockselect"),$("#container"),$("#map-canvas"), $(".infobox").first(), "/stocks.json");
-
 });
-
