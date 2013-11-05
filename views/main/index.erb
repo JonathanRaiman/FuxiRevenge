@@ -1,26 +1,17 @@
-<h2 class="headertext"><a name="multiple-select" class="anchor">RDFquery Stock Annotations</a></h2>
-<h3>Mitchell Kates and Jonathan Raiman</h3>
+<h2 class="headertext">
+	RDFquery Stock Annotations
+</h2>
+<h3>
+	<strong>Mitchell Kates</strong> and <strong>Jonathan Raiman</strong>
+</h3>
+
 <div class="side-by-side clearfix selectbox">
 	<div>
 	  <form id="stockform">
 		  <select id="stockselect" data-placeholder="Choose some stocks..." class="chosen-select" multiple style="width:350px;" tabindex="4">
-			<option value=""></option>
-			<option value="GE">General Electric</option>
-			<option value="ORCL">Oracle Corporation</option>
-			<option value="SODA">SodaStream International</option>
-			<option value="CTSH">Cognizant Technology</option>
-			<option value="PLX">Protalix BioThera</option>
-			<option value="IBM">International Business Machine</option>
-			<option value="HPQ">Hewlett Packard</option>
-			<option value="INTC">Intel Corporation</option>
-			<option value="AAPLE">Apple Inc.</option>
-			<option value="MSFT">Microsoft Corporation</option>
-			<option value="INFY">Infosys Limited</option>
-			<option value="CGEN">Compugen Ltd.</option>
-			<option value="QCOM">Qualcomm</option>
-			<option value="WIT">Wiproo Limited</option>
-			<option value="SNDK">SanDisk</option>
-			<option value="CSTE">CaesarStone</option>
+			<% StockFinder.new.retrieve_stocks.each do |stock| %>
+				<option value="<%= stock[:symbol]%>"><%= stock[:name] %></option>
+			<% end %>
 		  </select>
 		</form>
 	</div>
@@ -28,5 +19,6 @@
 
 
 <div id="container" style="width:90%; margin:50px auto; height:400px;"></div>
+<div id="map-canvas" style="width:90%; margin:50px auto; height:400px;"></div>
 
 <div id="map-canvas"></div>

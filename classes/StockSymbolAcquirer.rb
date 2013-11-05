@@ -35,7 +35,7 @@ class StockSymbolAcquirer
 				}
 				LIMIT 10000
 			MAP
-			).map {|i| i.to_hash }
+			).map {|i| i.to_hash }.uniq {|i| i[:symbol]}
 			@stocks.each do |query|
 				query.keys.each do |key|
 					if query[key].class == RDF::URI

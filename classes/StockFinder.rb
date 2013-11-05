@@ -20,6 +20,7 @@ class StockFinder
 		# we can now include the location
 		@@stocks.each_with_index do |stock,k|
 			output[k][:address] = stock[:address]
+			output[k][:name]    = stock[:company]
 		end
 		output
 	end

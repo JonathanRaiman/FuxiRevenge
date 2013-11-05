@@ -1,15 +1,23 @@
 body {
-	background-image: url("../img/sutblebg.png");
+	/*background-image: url("../img/sutblebg.png");*/
+	background: rgb(253,253,253);
+	-webkit-font-smoothing: antialiased;
+	font-weight: 300;
 }
 .headertext {
 	text-align: center;
 	margin-top: 40px;
 	text-shadow: 0 1px 1px white;
 }
+h3, h2, .headertext {
+	text-align: left;
+	font-size: 130%;
+}
 h3 {
-	text-align: center;
-	font-weight: 200;
-	font-size: 17px;
+	font-weight: 300;
+}
+h2, .headertext {
+	font-size: 200%;
 }
 .selectbox option {
 	margin: 0 auto;
@@ -17,4 +25,7 @@ h3 {
 #stockform {
 	margin: 0 auto;
 	text-align: center;
+}
+.chosen-container-multi .chosen-choices li.search-choice {
+	background: white;
 }

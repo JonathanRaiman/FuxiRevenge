@@ -3,7 +3,6 @@
 	<head>
 		<%= stylesheet_link_tag "/css/bootstrap.min.css", :media => "all" %>
 		<%= stylesheet_link_tag "/css/font-awesome.min.css", :media => "all"%>
-		<%= stylesheet_link_tag "/css/normal.css", :media => "all"%>
 		<%= stylesheet_link_tag "/css/chosen.css", :media => "all"%>
 		<%= stylesheet_link_tag "/css/stockapp.css", :media => "all"%>
 		
@@ -15,7 +14,9 @@
 		<meta charset="utf-8" />	
 	</head>
 	<body>
-		<%= yield %>
+		<div class="container-fluid">
+			<%= yield %>
+		</div>
 	</body>
 	<%= javascript_script_tag "/js/jquery.min.js" %>
 	<script src="http://code.highcharts.com/highcharts.js"></script>
@@ -26,7 +27,7 @@
 	<%= javascript_script_tag "/js/jquery.rdfquery.core-1.0.js" %>
 	<%= javascript_script_tag "/js/jquery.rdfquery.rdfa-1.0.js" %>
 	<%= javascript_script_tag "/js/jquery.rdfquery.rules-1.0.js" %>
+	<%= javascript_script_tag "https://maps.googleapis.com/maps/api/js?key=#{GOOGLE_API_KEY}&sensor=false"%>
 	<%= javascript_script_tag "/js/stockapp.js" %>
-	<%= javascript_script_tag "/js/app.js" %>
 	
 </html>
