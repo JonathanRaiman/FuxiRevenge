@@ -1,24 +1,26 @@
-<h2 class="headertext">
-	RDFquery Stock Annotations
-</h2>
-<h3>
-	<strong>Mitchell Kates</strong> and <strong>Jonathan Raiman</strong>
-</h3>
+<div id="map-canvas" class="google_map"></div>
 
-<div class="side-by-side clearfix selectbox">
-	<div>
-	  <form id="stockform">
-		  <select id="stockselect" data-placeholder="Choose some stocks..." class="chosen-select" multiple style="width:350px;" tabindex="4">
-			<% StockFinder.new.retrieve_stocks.each do |stock| %>
-				<option value="<%= stock[:symbol]%>"><%= stock[:name] %></option>
-			<% end %>
-		  </select>
-		</form>
-	</div>
+<div class="infobox">
+	<h2 class="headertext">
+		RDFquery Stock Annotations
+	</h2>
+	<h3>
+		<strong>Mitchell Kates</strong> and <strong>Jonathan Raiman</strong>
+	</h3>
 </div>
 
-
-<div id="container" style="width:90%; margin:50px auto; height:400px;"></div>
-<div id="map-canvas" style="width:90%; margin:50px auto; height:400px;"></div>
-
-<div id="map-canvas"></div>
+<div class="stock_holder">
+	<div class="side-by-side clearfix selectbox">
+		<div>
+		  <form id="stockform">
+			  <select id="stockselect" data-placeholder="Choose some stocks..." class="chosen-select" multiple style="width:350px;" tabindex="4" style="width: 500px">
+				<% StockFinder.new.retrieve_stocks.each do |stock| %>
+					<option value="<%= stock[:symbol]%>"><%= stock[:name] %></option>
+				<% end %>
+			  </select>
+			</form>
+		</div>
+	</div>
+	<div id="container" class="stock_container">
+	</div>
+</div>

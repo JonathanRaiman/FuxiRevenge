@@ -10,6 +10,7 @@ body {
 	text-shadow: 0 1px 1px white;
 }
 h3, h2, .headertext {
+	margin: 0;
 	text-align: left;
 	font-size: 130%;
 }
@@ -28,4 +29,29 @@ h2, .headertext {
 }
 .chosen-container-multi .chosen-choices li.search-choice {
 	background: white;
+}
+.google_map {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 300px;
+	position: absolute;
+}
+
+.infobox {
+	top: 0;
+	left: 0;
+	position: absolute;
+	padding: 30px;
+}
+.stock_container {
+	height: 260px;
+}
+
+.stock_holder {
+	height: 300px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
 }
